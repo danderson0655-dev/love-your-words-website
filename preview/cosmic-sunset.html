@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love Your Words | Customer Journey Content Strategist — Diane Anderson</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FFFFFF;
+      --bg-soft: #F7F4FE;
+      --bg-pink: #FEF4FA;
+      --text: #1C1830;
+      --primary: #7B52C8;
+      --primary-hover: #6840B8;
+      --secondary: #EDE7FA;
+      --accent: #D87DB0;
+      --accent-blue: #7BA8D8;
+      --muted: #1C1830;
+      --card-bg: rgba(123,82,200,0.04);
+      --border: rgba(123,82,200,0.12);
+      --radius: 14px;
+      --font-heading: 'Outfit', system-ui, sans-serif;
+      --font-body: 'Lexend', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text); background: var(--bg); line-height: 1.75; font-weight: 300; }
+    h1,h2,h3,h4 { font-family: var(--font-heading); line-height: 1.15; font-weight: 700; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Nav bar */
+    .compare-nav {
+      background: #1a1a2e;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: system-ui, sans-serif;
+      font-size: 13px;
+      flex-wrap: wrap;
+    }
+    .compare-nav span { color: #888; margin-right: 4px; }
+    .compare-nav a { color: #aaa; padding: 5px 14px; border-radius: 4px; transition: all 0.15s; }
+    .compare-nav a:hover { color: #fff; }
+    .compare-nav a.active { background: #2a2a4a; color: #b89ce8; }
+
+    /* Header */
+    .header {
+      padding: 20px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav { display: flex; gap: 36px; }
+    .nav a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+    .nav a:hover { color: var(--primary); }
+    .btn {
+      display: inline-block;
+      padding: 11px 26px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      border-radius: 40px;
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
+    }
+    .btn-outline:hover { background: var(--secondary); transform: translateY(-1px); }
+    .btn-lg { padding: 16px 44px; font-size: 1rem; }
+    .btn-white {
+      background: #fff;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .btn-white:hover { background: var(--secondary); opacity: 1; }
+
+    /* Hero */
+    .hero {
+      padding: 100px 6% 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 700px;
+      background: radial-gradient(ellipse at center,
+        rgba(123,82,200,0.08) 0%,
+        rgba(216,125,176,0.06) 40%,
+        rgba(123,168,216,0.04) 70%,
+        transparent 100%
+      );
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .hero-eyebrow span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 28px;
+      position: relative;
+    }
+    .hero h1 .gradient-text {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 60%, var(--accent-blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 52px;
+      line-height: 1.85;
+    }
+    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* Floating badges below hero CTA */
+    .hero-trust {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .trust-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      flex-shrink: 0;
+    }
+
+    /* Stats bar */
+    .credentials {
+      background: linear-gradient(135deg, var(--primary) 0%, #9B72E8 50%, var(--accent) 100%);
+      padding: 52px 6%;
+    }
+    .credentials-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .cred-item { text-align: center; }
+    .cred-number {
+      font-family: var(--font-heading);
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: #fff;
+      display: block;
+      letter-spacing: -0.02em;
+    }
+    .cred-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* Services */
+    .services {
+      padding: 100px 6%;
+      background: var(--bg);
+    }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-pill {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: var(--secondary);
+      padding: 6px 18px;
+      border-radius: 40px;
+      margin-bottom: 20px;
+    }
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .section-header p {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 16px auto 0;
+      font-weight: 300;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 44px 36px;
+      border-radius: var(--radius);
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(123,82,200,0.12);
+    }
+    .featured-package {
+      max-width: 1000px;
+      margin: 0 auto 60px;
+      background: linear-gradient(135deg, rgba(123,82,200,0.06) 0%, rgba(216,125,176,0.06) 100%);
+      border: 1.5px solid rgba(123,82,200,0.18);
+      border-radius: var(--radius);
+      padding: 44px 52px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+    }
+    .featured-package h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .featured-package .package-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .featured-package p { font-size: 0.93rem; color: var(--muted); line-height: 1.8; font-weight: 300; max-width: 520px; }
+    @media (max-width: 700px) {
+      .featured-package { grid-template-columns: 1fr; padding: 32px 28px; }
+    }
+    .service-icon-wrap {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      font-size: 1.3rem;
+    }
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+    .service-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.8; font-weight: 300; }
+
+    /* Testimonial */
+    .testimonial {
+      background: var(--bg-soft);
+      padding: 100px 6%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonial::before {
+      content: '';
+      position: absolute;
+      top: -50px; right: -100px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(216,125,176,0.08), transparent 70%);
+      pointer-events: none;
+    }
+    .testimonial::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 350px; height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(123,82,200,0.07), transparent 70%);
+      pointer-events: none;
+    }
+    .quote-icon {
+      display: block;
+      width: 48px; height: 48px;
+      margin: 0 auto 32px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: #fff;
+      margin: 0 auto 36px;
+    }
+    .quote-text {
+      font-family: var(--font-heading);
+      font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+      font-weight: 500;
+      line-height: 1.6;
+      max-width: 680px;
+      margin: 0 auto 40px;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      position: relative;
+    }
+    .quote-author strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .quote-author span {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    /* About strip */
+    .about-strip {
+      background: var(--bg-pink);
+      padding: 90px 6%;
+    }
+    .about-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 70px;
+      align-items: center;
+    }
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(123,82,200,0.12), rgba(216,125,176,0.12));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 28px;
+      border: 1px solid var(--border);
+    }
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+    .about-photo-placeholder {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 400;
+      padding: 20px;
+      letter-spacing: 0.02em;
+    }
+    .about-left h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 20px;
+    }
+    .about-left h2 .gradient-text {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .about-right p {
+      font-size: 0.98rem;
+      color: var(--muted);
+      line-height: 1.9;
+      font-weight: 300;
+    }
+    .about-right p + p { margin-top: 16px; }
+    .about-right .about-cta { margin-top: 32px; }
+
+    /* CTA Banner */
+    .cta-banner {
+      background: linear-gradient(135deg, #3D1F7A 0%, #6B2D8C 40%, #C04A8A 80%, #D87DB0 100%);
+      padding: 100px 6%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 600px;
+      background: radial-gradient(ellipse, rgba(255,255,255,0.08), transparent 70%);
+      pointer-events: none;
+    }
+    .cta-banner h2 {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #fff;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .cta-banner p {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto 44px;
+      font-weight: 300;
+      position: relative;
+    }
+
+    /* Footer */
+    .footer {
+      background: #0E0B1E;
+      color: rgba(255,255,255,0.4);
+      padding: 52px 6%;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    .footer-brand {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #b89ce8, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+    }
+    .footer-links { display: flex; gap: 28px; justify-content: center; margin: 18px 0; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.35); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); margin: 5px 0; border-radius: 2px; }
+
+    @media (max-width: 900px) {
+      .about-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .hamburger { display: block; }
+      .header .btn { display: none; }
+      .hero { padding: 70px 6% 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="compare-nav" aria-label="Site preview navigation">
+  <span>Preview:</span>
+  <a href="cosmic-sunset.html" class="active">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="discovery.html">Discovery Call</a>
+</nav>
+
+<header class="header">
+  <div class="logo">Love Your Words</div>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="blog.html">Blog</a>
+    <a href="discovery.html">Discovery Call</a>
+  </nav>
+  <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <a href="https://calendly.com/d-anderson0655/15min" target="_blank" rel="noopener" class="btn">Schedule a Call</a>
+</header>
+
+<main id="main-content">
+
+<section class="hero" aria-label="Hero">
+  <div class="hero-eyebrow">
+    <span aria-hidden="true"></span>
+    Customer Journey Content Strategist
+    <span aria-hidden="true"></span>
+  </div>
+  <h1>Most organizations know how to find a donor.<br/><span class="gradient-text">Few know how to keep one.</span></h1>
+  <p class="hero-sub">I write retention email, brand voice, and content strategy for nonprofits and essential-service organizations — the kind of communication that turns first-time donors and clients into people who stay.</p>
+  <div class="hero-actions">
+    <a href="#" class="btn btn-lg">Schedule a Discovery Call</a>
+    <a href="#" class="btn btn-outline btn-lg">See My Work</a>
+  </div>
+  <div class="hero-trust">
+    <div class="trust-badge"><div class="trust-dot"></div>Nonprofits</div>
+    <div class="trust-badge"><div class="trust-dot"></div>Healthcare Practices</div>
+    <div class="trust-badge"><div class="trust-dot"></div>Essential-Service Businesses</div>
+    <div class="trust-badge"><div class="trust-dot"></div>Trade & Professional Services</div>
+  </div>
+</section>
+
+<section class="credentials" aria-label="Credentials">
+  <div class="credentials-inner">
+    <div class="cred-item"><span class="cred-number">20+</span><span class="cred-label">Years in the trenches — selling, serving, and caring</span></div>
+    <div class="cred-item" style="max-width:200px"><span class="cred-number" style="font-size:1rem;letter-spacing:0.01em;line-height:1.7">Real People in Need</span><span class="cred-label">Not demographics</span></div>
+    <div class="cred-item" style="max-width:260px"><span class="cred-number" style="font-size:0.95rem;letter-spacing:0.01em;line-height:1.7">Starwood · Princess Cruises · Comcast · Paul Hastings · Sheppard Mullin</span><span class="cred-label">Where precision and trust were non-negotiable</span></div>
+    <div class="cred-item"><span class="cred-number">Bay Area</span><span class="cred-label">Serving Clients and Real People Everywhere</span></div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="section-header">
+    <span class="section-pill">What I Do</span>
+    <h2>Content that keeps your people coming back.</h2>
+    <p>Three services. One goal: organizations that communicate like they mean it.</p>
+  </div>
+  <div class="featured-package">
+    <div>
+      <div class="package-label">Most Popular</div>
+      <h3>Customer Journey Content Package</h3>
+      <p>All three services, built as one system around your mission and audience. Retention email sequence, brand voice guide, and an editorial calendar — delivered together so your content actually works as a whole, not as three separate projects.</p>
+    </div>
+    <a href="#" class="btn" style="white-space:nowrap">Schedule a Call</a>
+  </div>
+  <div class="services-grid">
+    <article class="service-card">
+      <div class="service-icon-wrap" aria-hidden="true">&#9993;</div>
+      <h3>Retention Email Sequences</h3>
+      <p>You sent the year-end appeal. Then went quiet until December. A retention sequence changes that with five to seven emails that continue the conversation instead of interrupting it. They feel like they came from a person, not a system.</p>
+    </article>
+    <article class="service-card">
+      <div class="service-icon-wrap" aria-hidden="true">&#9998;</div>
+      <h3>Brand Voice Guide</h3>
+      <p>Your mission is unique. Your communications may not sound like it yet. A brand voice guide gives everyone on your team a shared language for what "on-voice" means. What you publish sounds like what you say in person.</p>
+    </article>
+    <article class="service-card">
+      <div class="service-icon-wrap" aria-hidden="true">&#128197;</div>
+      <h3>Editorial Calendar &amp; Strategy</h3>
+      <p>Consistent communication doesn't happen by accident. A content calendar removes the blank-screen panic and replaces it with a clear plan — what to say, when to say it, and why it matters to the people you serve.</p>
+    </article>
+  </div>
+</section>
+
+<section class="about-strip">
+  <div class="about-inner">
+    <div class="about-left">
+      <div class="about-photo">
+        <img src="../public/images/diane-headshot.jpg" alt="Diane Anderson, Love Your Words" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="about-photo-placeholder" style="display:none">
+          ✦ Photo coming soon
+        </div>
+      </div>
+      <h2>Twenty years of listening to people say<br/><span class="gradient-text">what matters most.</span></h2>
+    </div>
+    <div class="about-right">
+      <p>Communication isn't something I learned in a classroom. I learned it in the trenches — selling and serving in the Starwood Preferred Guest loyalty program, where I saw firsthand what it takes to earn someone's return. Taking direct calls at Princess Cruises, helping families plan the group cruise, the wedding, the anniversary trip they'd been saving toward for years. Then working alongside an executive attorney at a law firm, serving the trial team, acting as liaison to the client — helping them access documents, organizing their answers, and doing the quiet work of creating connection and trust when the stakes were high.</p>
+      <p>And then caring for real people. The disabled. The lost elder orphans who had no one else. You learn to listen differently when stakes are that human.</p>
+      <p>Then my chihuahua, Leo Waxman — blind and deaf, seventeen years old — reached the moment where love meant letting go. Joybound enrolled me in their assistance program so I could give him the gentle goodbye he deserved. I wrote them a donor letter as my gift in return. Not because anyone asked. Because they had changed everything for me, and I had the one thing I could give: the ability to tell that story.</p>
+      <p>That letter is my transformation story. It's also what I do for every client — find the moment where everything shifted, and turn it into the kind of communication that builds real trust and lasting loyalty.</p>
+      <div class="about-cta">
+        <a href="#" class="btn btn-outline">More About Diane</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="quote-icon" aria-hidden="true">&#10077;</div>
+  <blockquote>
+    <p class="quote-text">"She understood us after the first conversation. I didn't have to explain who our people are or why the work matters — she already knew. Three months in, our donors are opening our emails. Some are writing back."</p>
+    <footer class="quote-author">
+      <strong>Communications Director</strong>
+      <span>Bay Area Nonprofit</span>
+    </footer>
+  </blockquote>
+</section>
+
+<section class="cta-banner">
+  <h2>Let's find out if we're a good fit.</h2>
+  <p>A Discovery Call is thirty minutes. No pitch, no pressure — just a conversation about your content and where the gaps are.</p>
+  <a href="#" class="btn btn-white btn-lg">Schedule a Discovery Call</a>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-brand">Love Your Words</div>
+  <p>Customer Journey Content Strategist &mdash; Diane Anderson</p>
+  <nav class="footer-links" aria-label="Footer navigation">
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Discovery Call</a>
+  </nav>
+  <p>&copy; 2026 Love Your Words</p>
+</footer>
+
+</body>
+</html>

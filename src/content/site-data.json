@@ -1,0 +1,17 @@
+{
+  "businessName": "Love Your Words",
+  "tagline": "Customer Journey Content Strategist",
+  "navigation": [
+    { "text": "Home", "url": "/" },
+    { "text": "About", "url": "/about" },
+    { "text": "Services", "url": "/services" },
+    { "text": "Discovery Call", "url": "/discovery" }
+  ],
+  "headerCta": {
+    "text": "Schedule a Call",
+    "url": "#"
+  },
+  "socialLinks": [],
+  "contactEmail": "",
+  "footerText": ""
+}

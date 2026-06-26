@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Love Your Words</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #1C1830;
+      background: #F5F2ED;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: Georgia, serif;
+      line-height: 1.2;
+      font-weight: normal;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Header */
+    header {
+      background: #F5F2ED;
+      padding: 30px 40px;
+      border-bottom: 1px solid rgba(28, 24, 48, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 24px;
+      font-weight: normal;
+      letter-spacing: 0.05em;
+    }
+
+    nav {
+      display: flex;
+      gap: 40px;
+    }
+
+    nav a {
+      font-size: 13px;
+      color: #1C1830;
+      transition: opacity 0.2s;
+    }
+
+    nav a:hover {
+      opacity: 0.6;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #6B2D8C 0%, #8B4BA8 20%, #D87DB0 40%, #E85B9C 60%, #FF7F50 80%, #FFA500 100%);
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      color: #FFFFFF;
+      margin-bottom: 20px;
+      font-weight: normal;
+      line-height: 1.3;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.8;
+    }
+
+    /* Content Sections */
+    section {
+      padding: 80px 40px;
+      background: #F5F2ED;
+    }
+
+    section:nth-child(even) {
+      background: #FAFAF8;
+    }
+
+    .section-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 36px;
+      margin-bottom: 24px;
+      color: #1C1830;
+      font-weight: normal;
+    }
+
+    section p {
+      margin-bottom: 18px;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      background: #1C1830;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      margin-top: 24px;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    /* Footer */
+    footer {
+      background: #1C1830;
+      color: rgba(255, 255, 255, 0.6);
+      padding: 48px 40px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    footer h3 {
+      font-size: 18px;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+      font-weight: normal;
+    }
+
+    footer p {
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    footer nav {
+      margin-top: 20px;
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+    }
+
+    footer nav a {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    footer nav a:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+
+      .hero {
+        padding: 60px 30px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      section {
+        padding: 60px 30px;
+      }
+
+      section h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="header-content">
+    <div class="logo">Love Your Words</div>
+    <nav>
+      <a href="home-statamic.html">Home</a>
+      <a href="about-statamic.html">About</a>
+      <a href="services-statamic.html">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<div class="hero">
+  <div class="hero-content">
+    <h1>Content that keeps your people coming back.</h1>
+    <p>Three core services, built to work together around your mission and your audience. The goal is always the same: organizations that communicate like they mean it.</p>
+  </div>
+</div>
+
+<!-- Retention Email Sequences -->
+<section>
+  <div class="section-content">
+    <h2>Retention Email Sequences</h2>
+    <p>You sent the year-end appeal. Then went quiet until next December. Your donors noticed. A retention email sequence fills that silence with five to seven emails that continue the conversation instead of interrupting it.</p>
+    <p>They feel like they came from a person, not a system. Built for the donor or client who gave once and hasn't heard from you since. The goal is simple: bring them back before they forget why they cared.</p>
+  </div>
+</section>
+
+<!-- Brand Voice Guide -->
+<section>
+  <div class="section-content">
+    <h2>Brand Voice Guide</h2>
+    <p>Your mission is unique. Your communications may not sound like it yet. A brand voice guide gives everyone on your team a shared language for what "on-voice" means.</p>
+    <p>What you publish sounds like what you say in person. New team members don't have to guess. Your organization stops sounding like a committee wrote it.</p>
+  </div>
+</section>
+
+<!-- Editorial Calendar & Content Strategy -->
+<section>
+  <div class="section-content">
+    <h2>Editorial Calendar & Content Strategy</h2>
+    <p>There's always something more urgent than the newsletter. Until donors start leaving. A content calendar removes the guesswork. What to say. When to say it. Why it matters to the people you serve.</p>
+    <p>Built around your mission, your audience, and your actual capacity. Consistent communication stops feeling like a luxury you can't afford. You're never staring at a blank screen.</p>
+  </div>
+</section>
+
+<!-- Customer Journey Package -->
+<section>
+  <div class="section-content">
+    <h2>Customer Journey Content Package</h2>
+    <p>All three services, built as one system around your mission and audience. Retention email sequence, brand voice guide, and an editorial calendar delivered together so your content actually works as a whole, not as three separate projects.</p>
+    <p>Most popular with organizations ready to invest in a complete solution.</p>
+    <button class="btn">Schedule a Discovery Call</button>
+  </div>
+</section>
+
+<!-- Who I Work Best With -->
+<section>
+  <div class="section-content">
+    <h2>Who I work best with.</h2>
+    <p>My clients are doing something that matters. They just need a content partner who understands the work without being educated from scratch on why it matters.</p>
+    <p>Nonprofits with loyal donors who have gone quiet. Healthcare practices building patient relationships over time. Essential-service businesses earning client trust and referrals. Organizations with powerful stories sitting in a folder somewhere. Teams that go quiet between campaigns and know it's costing them. Leaders who know what they do but haven't found the words for it yet.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="section-content">
+    <h2>Ready to talk about your content?</h2>
+    <p>A Discovery Call is 30 minutes. No pitch, no pressure. Just a conversation about your content and where the gaps are.</p>
+    <button class="btn">Schedule a Call</button>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <h3>Love Your Words</h3>
+    <p>Customer Journey Content Strategist</p>
+    <nav>
+      <a href="about-statamic.html">About</a>
+      <a href="services-statamic.html">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p style="margin-top: 20px; font-size: 12px;">© 2026 Love Your Words</p>
+  </div>
+</footer>
+
+</body>
+</html>

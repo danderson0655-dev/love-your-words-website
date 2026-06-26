@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discovery Call | Love Your Words</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FFFFFF;
+      --bg-soft: #F7F4FE;
+      --bg-pink: #FEF4FA;
+      --text: #1C1830;
+      --primary: #7B52C8;
+      --primary-hover: #6840B8;
+      --secondary: #EDE7FA;
+      --accent: #D87DB0;
+      --accent-blue: #7BA8D8;
+      --muted: #1C1830;
+      --card-bg: rgba(123,82,200,0.04);
+      --border: rgba(123,82,200,0.12);
+      --radius: 14px;
+      --font-heading: 'Outfit', system-ui, sans-serif;
+      --font-body: 'Lexend', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text); background: var(--bg); line-height: 1.75; font-weight: 300; }
+    h1,h2,h3,h4 { font-family: var(--font-heading); line-height: 1.15; font-weight: 700; }
+    a { color: inherit; text-decoration: none; }
+
+    .compare-nav {
+      background: #1a1a2e;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: system-ui, sans-serif;
+      font-size: 13px;
+      flex-wrap: wrap;
+    }
+    .compare-nav span { color: #888; }
+    .compare-nav a { color: #aaa; padding: 5px 14px; border-radius: 4px; transition: all 0.15s; }
+    .compare-nav a:hover { color: #fff; }
+    .compare-nav a.active { background: #2a2a4a; color: #b89ce8; }
+
+    .header {
+      padding: 20px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .logo { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav { display: flex; gap: 36px; }
+    .nav a { font-size: 0.875rem; font-weight: 500; color: var(--muted); letter-spacing: 0.01em; transition: color 0.2s; }
+    .nav a:hover, .nav a.active { color: var(--primary); }
+    .btn { display: inline-block; padding: 11px 26px; background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; border-radius: 40px; font-family: var(--font-heading); font-size: 0.875rem; font-weight: 600; letter-spacing: 0.02em; transition: opacity 0.2s, transform 0.2s; border: none; cursor: pointer; white-space: nowrap; }
+    .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-lg { padding: 16px 44px; font-size: 1rem; }
+    .btn-white { background: #fff; color: var(--primary); font-weight: 700; }
+    .btn-white:hover { background: var(--secondary); opacity: 1; }
+
+    .gradient-text { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    /* Hero */
+    .page-hero {
+      padding: 90px 6% 70px;
+      text-align: center;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse at center, rgba(123,82,200,0.07) 0%, rgba(216,125,176,0.05) 50%, transparent 100%);
+      pointer-events: none;
+    }
+    .page-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-heading); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary); margin-bottom: 28px; position: relative; }
+    .page-eyebrow span { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); }
+    .page-hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 24px; position: relative; }
+    .page-hero p { font-size: 1.1rem; color: var(--muted); max-width: 540px; margin: 0 auto; line-height: 1.85; font-weight: 300; }
+
+    /* What to Expect */
+    .expect-section {
+      padding: 90px 6%;
+      background: var(--bg-soft);
+    }
+    .section-pill { display: inline-block; font-family: var(--font-heading); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--primary); background: var(--secondary); padding: 6px 18px; border-radius: 40px; margin-bottom: 20px; }
+    .expect-inner { max-width: 860px; margin: 0 auto; }
+    .expect-inner h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; letter-spacing: -0.025em; margin-bottom: 48px; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; }
+    .step {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      position: relative;
+    }
+    .step-number {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+    .step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+    .step p { font-size: 0.92rem; color: var(--muted); line-height: 1.8; font-weight: 300; }
+
+    /* Booking */
+    .booking-section {
+      padding: 90px 6%;
+      background: var(--bg);
+    }
+    .booking-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .booking-inner h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; letter-spacing: -0.025em; margin-bottom: 20px; }
+    .booking-inner p { font-size: 1rem; color: var(--muted); line-height: 1.85; font-weight: 300; margin-bottom: 40px; }
+    .booking-placeholder {
+      background: var(--bg-soft);
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 60px 40px;
+      text-align: center;
+      color: var(--primary);
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 32px;
+    }
+    .booking-placeholder p { color: var(--muted); font-family: var(--font-body); font-size: 0.85rem; font-weight: 300; margin-top: 8px; margin-bottom: 0; letter-spacing: 0; }
+
+    /* FAQ */
+    .faq-section {
+      padding: 90px 6%;
+      background: var(--bg-pink);
+    }
+    .faq-inner { max-width: 720px; margin: 0 auto; }
+    .faq-inner h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 800; letter-spacing: -0.025em; margin-bottom: 48px; }
+    .faq-list { display: flex; flex-direction: column; gap: 0; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0;
+    }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-item h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 12px; color: var(--text); }
+    .faq-item p { font-size: 0.95rem; color: var(--muted); line-height: 1.85; font-weight: 300; }
+
+    /* CTA Banner */
+    .cta-banner { background: linear-gradient(135deg, #3D1F7A 0%, #6B2D8C 40%, #C04A8A 80%, #D87DB0 100%); padding: 90px 6%; text-align: center; position: relative; overflow: hidden; }
+    .cta-banner::before { content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 700px; height: 600px; background: radial-gradient(ellipse, rgba(255,255,255,0.08), transparent 70%); pointer-events: none; }
+    .cta-banner h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.025em; color: #fff; margin-bottom: 16px; position: relative; }
+    .cta-banner p { color: rgba(255,255,255,0.9); font-size: 1.05rem; max-width: 480px; margin: 0 auto 40px; font-weight: 300; position: relative; }
+
+    .footer { background: #0E0B1E; color: rgba(255,255,255,0.4); padding: 48px 6%; text-align: center; font-size: 0.85rem; }
+    .footer-brand { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; background: linear-gradient(135deg, #b89ce8, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 6px; }
+    .footer-links { display: flex; gap: 28px; justify-content: center; margin: 18px 0; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.35); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); margin: 5px 0; border-radius: 2px; }
+    @media (max-width: 768px) { .nav { display: none; } .hamburger { display: block; } .header .btn { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav class="compare-nav" aria-label="Site preview navigation">
+  <span>Preview:</span>
+  <a href="cosmic-sunset.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="discovery.html" class="active">Discovery Call</a>
+</nav>
+
+<header class="header">
+  <a href="cosmic-sunset.html" class="logo">Love Your Words</a>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="blog.html">Blog</a>
+    <a href="discovery.html" class="active">Discovery Call</a>
+  </nav>
+  <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <a href="discovery.html" class="btn">Schedule a Call</a>
+</header>
+
+<main id="main-content">
+
+<section class="page-hero" aria-label="Discovery Call page hero">
+  <div class="page-eyebrow">
+    <span aria-hidden="true"></span>
+    Let's Talk
+    <span aria-hidden="true"></span>
+  </div>
+  <h1>Let's find out if<br/>we're a <span class="gradient-text">good fit.</span></h1>
+  <p>A Discovery Call is thirty minutes. No pitch, no pressure. Just a real conversation about where your organization is, what your content is doing, and where the gaps are.</p>
+</section>
+
+<section class="expect-section" aria-label="What to expect">
+  <div class="expect-inner">
+    <span class="section-pill">What to Expect</span>
+    <h2>Thirty minutes. <span class="gradient-text">Three things.</span></h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-number">01</span>
+        <h3>I listen first.</h3>
+        <p>Tell me about your organization, your audience, and the content challenge that brought you here. I'll ask questions. You'll do most of the talking. That's intentional.</p>
+      </div>
+      <div class="step">
+        <span class="step-number">02</span>
+        <h3>We look at the gaps together.</h3>
+        <p>Where is communication breaking down? What are you sending that isn't landing? What stories do you have that no one is telling yet? We'll look at the real picture.</p>
+      </div>
+      <div class="step">
+        <span class="step-number">03</span>
+        <h3>We decide on next steps.</h3>
+        <p>If there's a clear fit, I'll tell you what I'd recommend and how we'd work together. If there isn't, I'll tell you that too. No hard sell. No follow-up pressure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking-section" aria-label="Book your call">
+  <div class="booking-inner">
+    <h2>Ready to <span class="gradient-text">schedule?</span></h2>
+    <p>Pick a time that works for you. The call is thirty minutes via Zoom or phone -- whichever you prefer.</p>
+    <!-- Calendly inline widget -->
+    <div class="calendly-inline-widget" data-url="https://calendly.com/d-anderson0655/15min" style="min-width:320px;height:700px;border-radius:14px;overflow:hidden;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  </div>
+</section>
+
+<section class="faq-section" aria-label="Common questions">
+  <div class="faq-inner">
+    <h2>Common <span class="gradient-text">questions.</span></h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <h3>What if I don't know exactly what I need yet?</h3>
+        <p>That's exactly what the call is for. Many of my clients come in knowing something isn't working -- they just aren't sure which piece to fix first. We'll figure that out together.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What does it cost?</h3>
+        <p>Services are billed at $40 per hour. Package pricing is available for the full Customer Journey Content Package. We'll talk through what fits your situation and your budget on the call -- there's no obligation.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How quickly can you start?</h3>
+        <p>Typically within one to two weeks of our first conversation. I'll give you a realistic timeline based on what you need and what my current schedule looks like.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Do you work with small organizations?</h3>
+        <p>Yes. Many of my clients are small nonprofits, solo practitioners, or lean teams wearing multiple hats. That's the audience I know best and the one I'm built to serve.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What do you need from me to get started?</h3>
+        <p>Not much. A conversation, a sense of your audience, and whatever existing content you have. I'll take it from there and ask for more as I need it. You won't have to explain your work from scratch.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner" aria-label="Call to action">
+  <h2>The conversation is free.<br/>The silence isn't.</h2>
+  <p>Every month your donors go without hearing from you is a month they're quietly drifting. Let's fix that.</p>
+  <a href="https://calendly.com/d-anderson0655/15min" target="_blank" rel="noopener" class="btn btn-white btn-lg">Schedule Your 15-Minute Call</a>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-brand">Love Your Words</div>
+  <p>Customer Journey Content Strategist &mdash; Diane Anderson</p>
+  <nav class="footer-links" aria-label="Footer navigation">
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="discovery.html">Discovery Call</a>
+  </nav>
+  <p>&copy; 2026 Love Your Words</p>
+</footer>
+
+</body>
+</html>

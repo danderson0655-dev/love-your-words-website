@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/*
+  Love Your Words -- Brand Tokens
+  Direction: Cosmic Sunset
+  Approved: 2026-06-17
+*/
+
+@theme {
+  /* Color Palette -- Cosmic Sunset */
+  --color-bg: #FFFFFF;
+  --color-bg-soft: #F7F4FE;
+  --color-bg-pink: #FEF4FA;
+  --color-text: #1C1830;
+  --color-primary: #7B52C8;
+  --color-primary-hover: #6840B8;
+  --color-secondary: #EDE7FA;
+  --color-accent: #D87DB0;
+  --color-accent-blue: #7BA8D8;
+  --color-muted: #1C1830;
+  --color-card-bg: rgba(123, 82, 200, 0.04);
+  --color-border: rgba(123, 82, 200, 0.12);
+
+  /* Typography -- Outfit + Lexend */
+  --font-heading: 'Outfit', system-ui, sans-serif;
+  --font-body: 'Lexend', system-ui, sans-serif;
+
+  /* Spacing & Shape */
+  --radius: 14px;
+  --section-spacing: 6rem;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}

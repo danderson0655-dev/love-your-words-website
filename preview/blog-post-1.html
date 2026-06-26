@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Scramble to Seem Human Is Missing the Point | Love Your Words</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FFFFFF;
+      --bg-soft: #F7F4FE;
+      --bg-pink: #FEF4FA;
+      --text: #1C1830;
+      --primary: #7B52C8;
+      --primary-hover: #6840B8;
+      --secondary: #EDE7FA;
+      --accent: #D87DB0;
+      --accent-blue: #7BA8D8;
+      --muted: #1C1830;
+      --card-bg: rgba(123,82,200,0.04);
+      --border: rgba(123,82,200,0.12);
+      --radius: 14px;
+      --font-heading: 'Outfit', system-ui, sans-serif;
+      --font-body: 'Lexend', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text); background: var(--bg); line-height: 1.75; font-weight: 300; }
+    h1,h2,h3,h4 { font-family: var(--font-heading); line-height: 1.2; font-weight: 700; }
+    a { color: inherit; text-decoration: none; }
+
+    .compare-nav {
+      background: #1a1a2e;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: system-ui, sans-serif;
+      font-size: 13px;
+      flex-wrap: wrap;
+    }
+    .compare-nav span { color: #888; }
+    .compare-nav a { color: #aaa; padding: 5px 14px; border-radius: 4px; transition: all 0.15s; }
+    .compare-nav a:hover { color: #fff; }
+    .compare-nav a.active { background: #2a2a4a; color: #b89ce8; }
+
+    .header {
+      padding: 20px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .logo { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav { display: flex; gap: 32px; }
+    .nav a { font-size: 0.875rem; font-weight: 500; color: var(--muted); letter-spacing: 0.01em; transition: color 0.2s; }
+    .nav a:hover, .nav a.active { color: var(--primary); }
+    .btn { display: inline-block; padding: 11px 26px; background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; border-radius: 40px; font-family: var(--font-heading); font-size: 0.875rem; font-weight: 600; letter-spacing: 0.02em; transition: opacity 0.2s, transform 0.2s; border: none; cursor: pointer; white-space: nowrap; }
+    .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-lg { padding: 16px 44px; font-size: 1rem; }
+    .btn-white { background: #fff; color: var(--primary); font-weight: 700; }
+    .btn-white:hover { background: var(--secondary); opacity: 1; }
+
+    .gradient-text { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    /* Article Header */
+    .article-header {
+      padding: 80px 6% 60px;
+      text-align: center;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-header::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse at center, rgba(123,82,200,0.07) 0%, rgba(216,125,176,0.05) 50%, transparent 100%);
+      pointer-events: none;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .post-tag {
+      font-family: var(--font-heading);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: var(--secondary);
+      padding: 4px 14px;
+      border-radius: 40px;
+    }
+    .post-date { font-size: 0.82rem; color: var(--muted); font-weight: 300; }
+    .article-header h1 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      max-width: 760px;
+      margin: 0 auto 28px;
+      position: relative;
+    }
+    .article-byline {
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .article-byline strong { color: var(--primary); font-weight: 600; }
+
+    /* Article Body */
+    .article-body {
+      padding: 70px 6% 90px;
+      background: var(--bg);
+    }
+    .article-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .article-inner p {
+      font-size: 1.05rem;
+      line-height: 1.95;
+      color: var(--text);
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+    .article-inner h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 48px 0 20px;
+      color: var(--text);
+    }
+    .article-inner h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin: 36px 0 14px;
+      color: var(--text);
+    }
+    .pull-quote {
+      border-left: 3px solid;
+      border-image: linear-gradient(180deg, var(--primary), var(--accent)) 1;
+      padding: 4px 0 4px 28px;
+      margin: 40px 0;
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.55;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .stat-callout {
+      background: var(--bg-soft);
+      border-radius: var(--radius);
+      padding: 36px 40px;
+      margin: 40px 0;
+      text-align: center;
+    }
+    .stat-callout .stat-number {
+      font-family: var(--font-heading);
+      font-size: 4rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .stat-callout p { font-size: 0.95rem; color: var(--muted); line-height: 1.75; font-weight: 300; margin-bottom: 0; }
+    .article-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+    .article-inner .section-label {
+      font-family: var(--font-heading);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    /* Author Bio */
+    .author-bio {
+      background: var(--bg-pink);
+      padding: 70px 6%;
+    }
+    .author-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+    }
+    .author-avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .author-text h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .author-text p { font-size: 0.92rem; color: var(--muted); line-height: 1.8; font-weight: 300; }
+    .author-text .author-link { color: var(--primary); font-weight: 500; margin-top: 10px; display: inline-block; }
+
+    /* Back to Blog */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      padding: 20px 6%;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .back-link::before { content: '\2190'; }
+    .back-link:hover { color: var(--primary-hover); }
+
+    /* CTA Banner */
+    .cta-banner { background: linear-gradient(135deg, #3D1F7A 0%, #6B2D8C 40%, #C04A8A 80%, #D87DB0 100%); padding: 90px 6%; text-align: center; position: relative; overflow: hidden; }
+    .cta-banner::before { content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 700px; height: 600px; background: radial-gradient(ellipse, rgba(255,255,255,0.08), transparent 70%); pointer-events: none; }
+    .cta-banner h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.025em; color: #fff; margin-bottom: 16px; position: relative; }
+    .cta-banner p { color: rgba(255,255,255,0.9); font-size: 1.05rem; max-width: 480px; margin: 0 auto 40px; font-weight: 300; position: relative; }
+
+    .footer { background: #0E0B1E; color: rgba(255,255,255,0.4); padding: 48px 6%; text-align: center; font-size: 0.85rem; }
+    .footer-brand { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; background: linear-gradient(135deg, #b89ce8, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 6px; }
+    .footer-links { display: flex; gap: 28px; justify-content: center; margin: 18px 0; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.35); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); margin: 5px 0; border-radius: 2px; }
+    @media (max-width: 768px) { .nav { display: none; } .hamburger { display: block; } .header .btn { display: none; } .author-inner { flex-direction: column; } }
+  </style>
+</head>
+<body>
+
+<nav class="compare-nav" aria-label="Site preview navigation">
+  <span>Preview:</span>
+  <a href="cosmic-sunset.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="blog.html" class="active">Blog</a>
+  <a href="discovery.html">Discovery Call</a>
+</nav>
+
+<header class="header">
+  <a href="cosmic-sunset.html" class="logo">Love Your Words</a>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="blog.html" class="active">Blog</a>
+    <a href="discovery.html">Discovery Call</a>
+  </nav>
+  <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <a href="https://calendly.com/d-anderson0655/15min" target="_blank" rel="noopener" class="btn">Schedule a Call</a>
+</header>
+
+<a href="blog.html" class="back-link">Back to Blog</a>
+
+<main id="main-content">
+
+<header class="article-header">
+  <div class="article-meta">
+    <span class="post-tag">Content Strategy</span>
+    <span class="post-date">June 2026</span>
+  </div>
+  <h1>The Scramble to Seem Human<br/>Is <span class="gradient-text">Missing the Point</span></h1>
+  <p class="article-byline">By <strong>Diane Anderson</strong> &mdash; Love Your Words</p>
+</header>
+
+<article class="article-body">
+  <div class="article-inner">
+
+    <span class="section-label">Content Culture</span>
+    <h2><a href="https://digiday.com/media/after-an-oversaturation-of-ai-generated-content-creators-authenticity-and-messiness-are-in-high-demand/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--accent);">The Scramble to Seem Human Is Missing the Point</a></h2>
+
+    <p style="font-family:var(--font-heading);font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">What happened:</p>
+    <ul style="list-style:none;padding:0;margin:0 0 32px;display:flex;flex-direction:column;gap:12px;">
+      <li style="padding-left:20px;position:relative;font-size:1rem;line-height:1.8;font-weight:300;"><span style="position:absolute;left:0;top:0.55em;width:7px;height:7px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:50%;display:block;"></span>After years of AI content flooding social feeds and inboxes, people are pushing back. Brands and creators are rethinking everything.</li>
+      <li style="padding-left:20px;position:relative;font-size:1rem;line-height:1.8;font-weight:300;"><span style="position:absolute;left:0;top:0.55em;width:7px;height:7px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:50%;display:block;"></span>Early 2026, major brands including Equinox and Almond Breeze ran ads mocking AI content. They wanted to look human and real.</li>
+      <li style="padding-left:20px;position:relative;font-size:1rem;line-height:1.8;font-weight:300;"><span style="position:absolute;left:0;top:0.55em;width:7px;height:7px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:50%;display:block;"></span>Influencer agencies are getting requests for content that looks messy on purpose. An unmade bed, dishes in the sink, a shirt that hasn't been ironed.</li>
+      <li style="padding-left:20px;position:relative;font-size:1rem;line-height:1.8;font-weight:300;"><span style="position:absolute;left:0;top:0.55em;width:7px;height:7px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:50%;display:block;"></span>Consumer preference for AI creator content has dropped from 60% in 2023 to 26% today.</li>
+      <li style="padding-left:20px;position:relative;font-size:1rem;line-height:1.8;font-weight:300;"><span style="position:absolute;left:0;top:0.55em;width:7px;height:7px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:50%;display:block;"></span>Instagram CEO Adam Mosseri released a memo in December asking platforms to label AI content and show people who's really posting.</li>
+    </ul>
+
+    <p style="font-family:var(--font-heading);font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;">Diane's Take</p>
+
+    <p>In 2008, Zhang Yimou directed the opening ceremony of the Beijing Olympics. Thousands of performers moved in perfect sync. The world watched and thought ... China has a lot of people.</p>
+
+    <p>Yimou saw something else. He saw an abundant resource and asked what he could build with it. He stopped seeing it as a problem and started seeing it as a canvas.</p>
+
+    <p>AI has done the same thing to content. Now anyone can write a clean paragraph. Anyone can fill a newsletter. A well-written email, a polished case study, a professional website ... none of that proves anything anymore. It is just the starting line.</p>
+
+    <p>So brands are panicking. They ask creators to leave the dishes in the sink. They run ads mocking their own industry. They scramble to prove they're human.</p>
+
+    <p>But let's name what's underneath all of that. Doesn't the hunger for lower staff costs, so owners and companies keep more profit and more power, sound familiar? It sounds like the Gold Rush. Everyone racing to stake a claim before someone else does. Whoever gets there first controls the ground, the water, and every tool everyone else has to rent.</p>
+
+    <p>Are we in a race where one powerful group ends up holding all the keys?</p>
+
+    <p>And then there's a whole new problem on top of that. AI detectors have flooded the market. Clients and employers are drawing hard lines. No AI content allowed. We have serious detectors and you will be deleted and blocked. So people pour money into AI detector subscriptions. You run your content through three of them. You pass on one. You score 70% on the next. The third one calls it AI-created.</p>
+
+    <p>That is not the right question to be asking.</p>
+
+    <div class="pull-quote">
+      The real question is whether what you write is actually true. Whether it came from a real moment. Whether you were there.
+    </div>
+
+    <p>Real means you were there. You made the decision. You learned the lesson. You carried the failure. You remember the exact moment things changed.</p>
+
+    <p>AI can write about resilience. It cannot endure. AI can write about failure. It cannot fail. AI can describe the moment a client called to say thank you. It was not on that call.</p>
+
+    <p>The organizations that earn real trust stop racing to label their content human. They fill it with things only they could know.</p>
+
+    <div class="stat-callout">
+      <span class="stat-number">26%</span>
+      <p>That is the share of consumers who now prefer AI-generated creator content, down from 60% in 2023, according to research from influencer marketing agency Billion Dollar Boy, cited in <a href="https://digiday.com/media/after-an-oversaturation-of-ai-generated-content-creators-authenticity-and-messiness-are-in-high-demand/" target="_blank" rel="noopener" style="color:var(--primary);">Digiday</a>. In three years, people lost their taste for it. They went looking for something real. They found it.</p>
+    </div>
+
+    <hr class="article-divider" />
+
+    <span class="section-label">The Question Nobody Wants to Ask</span>
+    <h2>If AI saves us all that time, where does it go?</h2>
+
+    <p>AI is here to save us time. To make us more efficient. To give us all the data we need to solve real problems for real businesses. That is the promise. And for a lot of companies, it is working.</p>
+
+    <p>But here's what I keep turning over in my head ... efficient for whom?</p>
+
+    <p>Because when you walk out your front door, you see people. Real ones. Some are doing okay. A lot of them are not. And no AI was built to care about that gap.</p>
+
+    <p>There is a scene in Slumdog Millionaire where the camera pulls back and you see the whole city. The kids on the corners. The landfill at the edge of everything. The movie does not fix it. It just asks you to look.</p>
+
+    <p>Soylent Green was supposed to be science fiction. Will I end up walking in that line?</p>
+
+    <p>When a tool is only measured by what it produces, clicks and content and numbers on a dashboard, the older question gets lost. The harder one. How do we love our neighbor? How do we care for the poor, the underserved, the animals that need care, the living creatures who never show up in the efficiency metrics because they are not in the market at all?</p>
+
+    <p>That question gets louder as the tools get smarter.</p>
+
+    <p>I write for organizations that are still trying to answer it. Nonprofits, clinics, trade businesses, local organizations doing work that a machine can help with but never replace. I write for them because the work matters. Because someone has to say out loud what an organization stands for and why it is worth staying.</p>
+
+    <p>That still has to be a human job. And I am grateful every time someone trusts me with it.</p>
+
+    <hr class="article-divider" />
+
+    <span class="section-label">One Small Thing</span>
+    <h2>When your client can't give you a story, write your own first.</h2>
+
+    <p>Ghostwriting has a quiet problem. Clients are busy. They hand off the intake form to an assistant. They assume you can fill in the gaps. They trust you to sound like them before they have shown you what that sounds like.</p>
+
+    <p>Here is what I keep coming back to. I spent years in sales making a hundred calls a day while a boss timed and recorded every one. Those calls taught me what it means to be accountable to a moment, to another person, to the truth of what actually happened. That experience lives in me. And when I write for someone else, I am looking for the same thing in them.</p>
+
+    <p>The practice that keeps helping me is writing my own story first. The rough version. The one where I was nervous, or wrong, or just figuring it out. When you know what it costs to write something true from your own life, you recognize the same material in someone else. You know which question to ask. And you know how to wait for the real answer.</p>
+
+    <p>Try it this week. Write one true moment from your own experience. Just the moment, not the lesson. Notice how long it takes to get there. That is what you are asking of every client who trusts you with their story.</p>
+
+    <hr class="article-divider" />
+
+    <span class="section-label">Something Found</span>
+    <h2>From Charles Duhigg, <em>Supercommunicators</em></h2>
+
+    <p style="font-size:1.15rem;font-style:italic;line-height:1.9;border-left:3px solid var(--secondary);padding-left:24px;margin:24px 0;">Every conversation is really one of three conversations. Do you want to be helped? Do you want to be hugged? Or do you want to be heard?</p>
+
+    <p>It stopped me because it is so simple it should be obvious. Somehow it is not. I think about how many client calls would go differently if I asked that first. Before the intake form. Before the questions. Just ... which conversation do we actually need to have right now?</p>
+
+    <hr class="article-divider" />
+
+    <span class="section-label">Working Together</span>
+    <h2>Your organization has a real story.</h2>
+
+    <p>The organizations I work with have real stories. Moments that changed things. People who stayed because a letter reached them. Donors who came back because someone took the time to say what their gift actually did.</p>
+
+    <p>The story is almost always there. Someone just needs to find it and put it into words.</p>
+
+    <p>That is what I do. I write content for nonprofits, health practices, trade businesses, and essential-service organizations. Donor emails that sound like them. Brand voice guides that feel real. Editorial plans they will actually use. It sounds like them because it came from them.</p>
+
+    <p>I do this work because I believe in it. Helping an organization find its true story, the one that brings a donor back or keeps a client connected, feels like the right use of whatever gifts I have. I am grateful for every chance to do it.</p>
+
+    <p>Your organization has a real story. I would love to help you find the words.</p>
+
+  </div>
+</article>
+
+<aside class="author-bio" aria-label="About the author">
+  <div class="author-inner">
+    <div class="author-avatar" aria-hidden="true">D</div>
+    <div class="author-text">
+      <h3>Diane Anderson</h3>
+      <p>Customer Journey Content Strategist. I write retention email, brand voice, and content strategy for nonprofits and essential-service organizations -- the kind of communication that turns first-time donors and clients into people who stay.</p>
+      <a href="discovery.html" class="author-link">Schedule a Discovery Call</a>
+    </div>
+  </div>
+</aside>
+
+<section class="cta-banner" aria-label="Call to action">
+  <h2>Your organization has a real story.<br/>Let's find the words for it.</h2>
+  <p>A Discovery Call is fifteen minutes. No pitch, no pressure -- just a conversation about your content and where the gaps are.</p>
+  <a href="https://calendly.com/d-anderson0655/15min" target="_blank" rel="noopener" class="btn btn-white btn-lg">Schedule Your Call</a>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-brand">Love Your Words</div>
+  <p>Customer Journey Content Strategist &mdash; Diane Anderson</p>
+  <nav class="footer-links" aria-label="Footer navigation">
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="blog.html">Blog</a>
+    <a href="discovery.html">Discovery Call</a>
+  </nav>
+  <p>&copy; 2026 Love Your Words</p>
+</footer>
+
+</body>
+</html>
