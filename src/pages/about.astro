@@ -1,0 +1,368 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About | Love Your Words — Diane Anderson">
+  <style>
+    .hero {
+      padding: 100px 6% 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 700px;
+      background: radial-gradient(ellipse at center,
+        rgba(123,82,200,0.08) 0%,
+        rgba(216,125,176,0.06) 40%,
+        rgba(123,168,216,0.04) 70%,
+        transparent 100%
+      );
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #7B52C8;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .hero h1 {
+      max-width: 820px;
+      margin: 0 auto 24px;
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+    .hero-highlight {
+      background: linear-gradient(135deg, #7B52C8 0%, #D87DB0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.125rem;
+      line-height: 1.75;
+      color: rgba(28,24,48,0.70);
+    }
+
+    .story-section {
+      padding: 80px 6%;
+      background: #FEF4FA;
+    }
+    .story-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .story-inner p {
+      font-size: 1.05rem;
+      line-height: 1.95;
+      color: #1C1830;
+      margin-bottom: 24px;
+    }
+    .pull-quote {
+      border-left: 3px solid #7B52C8;
+      padding-left: 28px;
+      margin: 40px 0;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1.55;
+      color: #1C1830;
+      letter-spacing: -0.01em;
+    }
+
+    .philosophy {
+      padding: 80px 6%;
+      background: #fff;
+    }
+    .philosophy-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .section-pill {
+      display: inline-block;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7B52C8;
+      background: #EDE7FA;
+      padding: 6px 18px;
+      border-radius: 40px;
+      margin-bottom: 20px;
+    }
+    .philosophy h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 40px;
+      max-width: 600px;
+      line-height: 1.2;
+    }
+    .belief-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+    .belief-card {
+      background: rgba(123,82,200,0.04);
+      border: 1px solid rgba(123,82,200,0.12);
+      border-radius: 14px;
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .belief-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #7B52C8, #D87DB0);
+    }
+    .belief-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+      font-family: 'Outfit', system-ui, sans-serif;
+    }
+    .belief-card p {
+      font-size: 0.92rem;
+      line-height: 1.8;
+      color: #1C1830;
+      font-weight: 400;
+    }
+
+    .background-section {
+      background: #F7F4FE;
+      padding: 80px 6%;
+    }
+    .background-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .background-inner h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 48px;
+      line-height: 1.2;
+    }
+    .background-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .bg-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .bg-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7B52C8, #D87DB0);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .bg-item-text strong {
+      display: block;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #1C1830;
+    }
+    .bg-item-text span {
+      font-size: 0.88rem;
+      color: #1C1830;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    .cta-banner {
+      background: linear-gradient(135deg, #3D1F7A 0%, #6B2D8C 40%, #C04A8A 80%, #D87DB0 100%);
+      padding: 80px 6%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(255,255,255,0.08), transparent 70%);
+      pointer-events: none;
+    }
+    .cta-banner h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #fff;
+      margin-bottom: 16px;
+      position: relative;
+      line-height: 1.2;
+    }
+    .cta-banner p {
+      color: rgba(255,255,255,0.9);
+      font-size: 1.05rem;
+      max-width: 480px;
+      margin: 0 auto 40px;
+      font-weight: 400;
+      position: relative;
+    }
+    .btn {
+      display: inline-block;
+      padding: 16px 44px;
+      background: #fff;
+      color: #7B52C8;
+      border-radius: 40px;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+  </style>
+
+  <section class="hero">
+    <div class="hero-eyebrow">
+      About Diane Anderson
+    </div>
+    <h1>
+      Communication isn't something I learned in a <span class="hero-highlight">classroom.</span>
+    </h1>
+    <p>I learned it in the trenches. Serving real people in high-stakes moments. Finding the stories that create trust, loyalty, and the kind of connection that lasts.</p>
+  </section>
+
+  <section class="story-section">
+    <div class="story-inner">
+      <p>At Starwood Hotels, I served guests who had saved their whole life for one trip. Every interaction carried weight. Every word either built trust or broke it. Inside the Starwood Preferred Guest loyalty program, I saw what it takes to earn someone's return.</p>
+
+      <p>At Princess Cruises, I took direct calls from families planning the group cruise, the anniversary trip, the wedding they'd been saving toward for years. I listened for what they weren't saying yet. The hope underneath the question.</p>
+
+      <p>At Sheppard Mullin and Paul Hastings, I worked alongside executive attorneys serving trial teams. As the liaison to the client, I helped them access documents, organized their answers, and built connection and trust when stakes were high.</p>
+
+      <div class="pull-quote">
+        "Communication lives in the trenches. It happens when you show up for people in the moments that matter most."
+      </div>
+
+      <p>Then came the caregiving years. I served people who couldn't serve themselves. The disabled. The lost elder orphans who had no one else. In those rooms, I learned what real communication looks like when pretense is gone and all that's left is one human being reaching another.</p>
+
+      <p>Then my chihuahua, Leo Waxman. Blind and deaf, seventeen years old. He reached the moment where love meant letting go. Joybound enrolled me in their assistance program so I could give him the gentle goodbye he deserved. I wrote them a donor letter as my gift in return. Not because anyone asked. Because they had changed everything for me, and I had the one thing I could give: the ability to tell that story.</p>
+
+      <p>That letter is my transformation story. It is also the proof of what I bring to every client. The ability to find the moment where everything shifted, and turn it into communication that builds real trust and lasting loyalty.</p>
+    </div>
+  </section>
+
+  <section class="philosophy">
+    <div class="philosophy-inner">
+      <span class="section-pill">What I Believe</span>
+      <h2>Story is the <span class="hero-highlight">secret sauce.</span> It always has been.</h2>
+      <div class="belief-grid">
+        <div class="belief-card">
+          <h3>Story grounds everything.</h3>
+          <p>Products. Services. Missions. Loyalty programs. None of them land without a story that makes the reader feel something real. Not sentimental. Real.</p>
+        </div>
+        <div class="belief-card">
+          <h3>Meet people where they are.</h3>
+          <p>Your donor is in a different place than your first-time visitor. Your returning client needs something different than your new referral. Content that works knows the difference.</p>
+        </div>
+        <div class="belief-card">
+          <h3>Trust comes before loyalty.</h3>
+          <p>You can't ask for loyalty from someone who doesn't trust you yet. The content I build earns trust first. Consistently, through real communication. And lets loyalty follow naturally.</p>
+        </div>
+        <div class="belief-card">
+          <h3>Technology is not the secret sauce.</h3>
+          <p>It never was. The secret has always been how we serve the people in front of us. The platforms change. That truth doesn't.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="background-section">
+    <div class="background-inner">
+      <h2>Where I've <span class="hero-highlight">done the work.</span></h2>
+      <div class="background-list">
+        <div class="bg-item">
+          <div class="bg-dot"></div>
+          <div class="bg-item-text">
+            <strong>Starwood Hotels</strong>
+            <span>Starwood Preferred Guest loyalty program — selling and serving guests who came back because they trusted us.</span>
+          </div>
+        </div>
+        <div class="bg-item">
+          <div class="bg-dot"></div>
+          <div class="bg-item-text">
+            <strong>Princess Cruises</strong>
+            <span>Direct customer calls — helping families book the group cruise, the wedding, the anniversary trip of a lifetime.</span>
+          </div>
+        </div>
+        <div class="bg-item">
+          <div class="bg-dot"></div>
+          <div class="bg-item-text">
+            <strong>Comcast</strong>
+            <span>Selling and troubleshooting services — learning how to build trust when a customer is frustrated and needs a real answer.</span>
+          </div>
+        </div>
+        <div class="bg-item">
+          <div class="bg-dot"></div>
+          <div class="bg-item-text">
+            <strong>Paul Hastings & Sheppard Mullin</strong>
+            <span>Trial team liaison and legal communications — where one wrong word was a big deal and precision meant everything.</span>
+          </div>
+        </div>
+        <div class="bg-item">
+          <div class="bg-dot"></div>
+          <div class="bg-item-text">
+            <strong>In-Home Caregiving</strong>
+            <span>Serving the disabled and the lost elder orphans — the work that taught me what it means to communicate with real care.</span>
+          </div>
+        </div>
+        <div class="bg-item">
+          <div class="bg-dot"></div>
+          <div class="bg-item-text">
+            <strong>Joybound, Walnut Creek CA</strong>
+            <span>Donor letter written as a gift — the transformation story that led to this work.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <h2>Let's find out if we're a good fit.</h2>
+    <p>A Discovery Call is thirty minutes. No pitch, no pressure — just a conversation about your content and where the gaps are.</p>
+    <a href="/discovery-call" class="btn">Schedule a Discovery Call</a>
+  </section>
+</BaseLayout>
