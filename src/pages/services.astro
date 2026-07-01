@@ -1,0 +1,175 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Services | Love Your Words">
+  <style>
+    .services-header {
+      padding: 80px 6% 60px;
+      text-align: center;
+      background: #F7F4FE;
+    }
+    .services-header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+      color: #1C1830;
+    }
+    .services-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.125rem;
+      color: rgba(28,24,48,0.70);
+      line-height: 1.75;
+    }
+    .featured-service {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 6%;
+    }
+    .featured-service h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+      color: #1C1830;
+      font-family: 'Outfit', system-ui, sans-serif;
+    }
+    .featured-service p {
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: #1C1830;
+      margin-bottom: 24px;
+    }
+    .includes {
+      background: #FEF4FA;
+      padding: 32px;
+      border-radius: 14px;
+      margin: 32px 0;
+    }
+    .includes h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #1C1830;
+      font-family: 'Outfit', system-ui, sans-serif;
+    }
+    .includes ul {
+      margin-left: 24px;
+    }
+    .includes li {
+      margin-bottom: 12px;
+      font-size: 1.0625rem;
+      line-height: 1.6;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 60px auto;
+      max-width: 900px;
+      padding: 0 6%;
+    }
+    .service-card {
+      padding: 32px;
+      border: 1px solid rgba(123,82,200,0.12);
+      border-radius: 14px;
+      background: #fff;
+      transition: all 0.2s;
+    }
+    .service-card:hover {
+      border-color: #7B52C8;
+      box-shadow: 0 8px 24px rgba(123,82,200,0.08);
+    }
+    .service-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #1C1830;
+      font-family: 'Outfit', system-ui, sans-serif;
+    }
+    .service-card p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: rgba(28,24,48,0.70);
+      margin-bottom: 0;
+    }
+    .cta-section {
+      padding: 60px 6%;
+      text-align: center;
+      background: #F7F4FE;
+    }
+    .cta-section h2 {
+      max-width: 700px;
+      margin: 0 auto 24px;
+      font-size: 1.75rem;
+      font-weight: 700;
+      font-family: 'Outfit', system-ui, sans-serif;
+    }
+    .cta-section p {
+      max-width: 600px;
+      margin: 0 auto 32px;
+      color: rgba(28,24,48,0.70);
+      line-height: 1.75;
+      font-size: 1.0625rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 13px 36px;
+      background: linear-gradient(135deg, #7B52C8, #D87DB0);
+      color: #fff;
+      border-radius: 40px;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn:hover { opacity: 0.9; transform: translateY(-2px); }
+  </style>
+
+  <section class="services-header">
+    <h1>Services</h1>
+    <p>Content built from the things only your organization could know.</p>
+  </section>
+
+  <section class="featured-service">
+    <h2>Customer Journey Content Package</h2>
+    <p>This is the complete system. One integrated offering that works because the pieces talk to each other.</p>
+
+    <div class="includes">
+      <h3>What's Included</h3>
+      <ul>
+        <li><strong>Retention Email System:</strong> A sequence of emails that shows your supporters what their gift, their patient relationship, or their business actually does. Not gratitude-heavy. Impact-heavy.</li>
+        <li><strong>Brand Voice Guide:</strong> Your organization's actual voice, written down and formalized. So every team member can sound like you, not like a template.</li>
+        <li><strong>Editorial Calendar & Strategy:</strong> A 6-month map of what to say, when to say it, and why it matters. Built from your real stories, not trends.</li>
+      </ul>
+    </div>
+
+    <p>These three pieces work as a system. Your emails reflect your voice. Your voice guides your editorial calendar. Your calendar keeps you consistent.</p>
+    <p>The result: supporters feel like they know you. They trust you. They come back.</p>
+  </section>
+
+  <section style="padding: 60px 6%; background: #FEF4FA;">
+    <h2 style="text-align: center; max-width: 900px; margin: 0 auto 48px; font-size: 1.75rem; font-weight: 700; font-family: 'Outfit', system-ui, sans-serif;">Or Start With One</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Retention Email Sequence</h3>
+        <p>4-6 emails that turn one-time supporters into repeat ones. Each one shows a different dimension of impact.</p>
+      </div>
+      <div class="service-card">
+        <h3>Brand Voice Guide</h3>
+        <p>A written guide to your organization's voice: tone, vocabulary, story structure, and real examples. For consistency across all channels.</p>
+      </div>
+      <div class="service-card">
+        <h3>Editorial Calendar & Strategy</h3>
+        <p>A 6-month content map with themes, topics, and story angles that build from your real work, not trends.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Ready to Talk About Your Content?</h2>
+    <p>Every organization has a real story. Let's find the words for yours.</p>
+    <a href="/discovery-call" class="btn">Schedule a Discovery Call</a>
+  </section>
+</BaseLayout>

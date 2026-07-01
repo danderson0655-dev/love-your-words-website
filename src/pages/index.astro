@@ -1,3 +1,268 @@
 ---
-return Astro.redirect('/direction-1');
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
+
+<BaseLayout title="Love Your Words | Customer Journey Content Strategist — Diane Anderson">
+  <style>
+    .hero {
+      padding: 100px 6% 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 700px;
+      background: radial-gradient(ellipse at center,
+        rgba(123,82,200,0.08) 0%,
+        rgba(216,125,176,0.06) 40%,
+        rgba(123,168,216,0.04) 70%,
+        transparent 100%
+      );
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #7B52C8;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .hero h1 {
+      max-width: 820px;
+      margin: 0 auto 24px;
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+    .hero-highlight {
+      background: linear-gradient(135deg, #7B52C8 0%, #D87DB0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 48px;
+      font-size: 1.125rem;
+      line-height: 1.75;
+      color: rgba(28,24,48,0.70);
+    }
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .btn {
+      display: inline-block;
+      padding: 13px 36px;
+      background: linear-gradient(135deg, #7B52C8, #D87DB0);
+      color: #fff;
+      border-radius: 40px;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      color: #7B52C8;
+      border: 1.5px solid #7B52C8;
+    }
+    .btn-outline:hover { background: #EDE7FA; }
+    .trust-badges {
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(123,82,200,0.12);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .badge {
+      font-size: 0.9rem;
+      color: #1C1830;
+      font-weight: 500;
+    }
+    .badge-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #7B52C8;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .credentials {
+      background: #F7F4FE;
+      padding: 48px 6%;
+      text-align: center;
+    }
+    .credentials h2 {
+      max-width: 700px;
+      margin: 0 auto 16px;
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+    .credentials-subtitle {
+      max-width: 700px;
+      margin: 0 auto 32px;
+      color: rgba(28,24,48,0.70);
+      line-height: 1.75;
+    }
+    .stat-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+      max-width: 800px;
+      margin: 0 auto;
+      margin-top: 32px;
+    }
+    .stat {
+      padding: 20px;
+    }
+    .stat-number {
+      font-size: 2.2rem;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-weight: 800;
+      color: #7B52C8;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      color: #1C1830;
+    }
+    .story-section {
+      background: #F7F4FE;
+      padding: 64px 6%;
+    }
+    .story-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .story-container h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 32px;
+      color: #1C1830;
+    }
+    .story-container p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #1C1830;
+      margin-bottom: 20px;
+    }
+    .story-container strong {
+      font-weight: 600;
+    }
+  </style>
+
+  <section class="hero">
+    <div class="hero-eyebrow">
+      🎯 EXPERTISE IN RETENTION
+    </div>
+    <h1>
+      Most organizations know how to <span class="hero-highlight">find a donor. Few know how to keep one.</span>
+    </h1>
+    <p>
+      Your mission deserves to be one of the few. With the right emails, voice, and content systems, your one-time supporters become lifetime advocates.
+    </p>
+    <div class="cta-group">
+      <a href="/discovery-call" class="btn">Schedule a Discovery Call</a>
+      <a href="/about" class="btn btn-outline">Learn My Story</a>
+    </div>
+
+    <div class="trust-badges">
+      <div class="badge">
+        <div class="badge-label">Sectors Served</div>
+        <div>Nonprofits, Healthcare, Essential Services</div>
+      </div>
+      <div class="badge">
+        <div class="badge-label">Years in the Trenches</div>
+        <div>20+ years. Loyalty programs. Direct mail. Real people.</div>
+      </div>
+      <div class="badge">
+        <div class="badge-label">Clients Include</div>
+        <div>Starwood, Princess Cruises, Paul Hastings, Sheppard Mullin</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="credentials">
+    <h2>Why Organizations Trust This Work</h2>
+    <p class="credentials-subtitle">
+      Your organization doesn't need more generic copywriting. You need a complete message system—from the first email to the last touchpoint—so every word reinforces who you are and why your people matter. I design that system for you, drawing on 20+ years of turning first-time givers into lifelong supporters.
+    </p>
+    <div class="stat-group">
+      <div class="stat">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Years Writing</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Organizations Served</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Core Services</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Mission-Driven</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story-section">
+    <div class="story-container">
+      <h2>How a Goodbye Became a Beginning</h2>
+
+      <p>At 72, my beloved chihuahua, Leo Waxman (blind and deaf) had reached the point where love meant letting go. I called six different vets. The cost for compassionate end-of-life care was $350 or more, and I didn't know how I was going to manage it.</p>
+
+      <p>Then I reached out to Joybound. They didn't just give me information. They gave me compassion. They helped me access an assistance program so I could give Leo the gentle, loving goodbye he deserved.</p>
+
+      <p>That last day with Leo... it's one I will never forget. It was peaceful. It was dignified. And it was filled with love.</p>
+
+      <p>A few weeks later, I sat down and wrote what happened. Not to process it. Not to heal. Just to tell it straight. The desperation. The kindness. Leo in my arms knowing he was safe.</p>
+
+      <p>That's when I understood what I wanted to do with Love Your Words. Help people tell stories like that. <strong>Stories are the one place where only you know what's real, what actually happened.</strong> Not marketing copy. Not templates. Just the true, specific, tender things that matter.</p>
+
+      <p>And when you tell your real story, you become part of a community that chooses honesty in the moments that matter most.</p>
+    </div>
+  </section>
+
+  <section style="padding: 64px 6%; text-align: center; background: #fff;">
+    <h2 style="max-width: 700px; margin: 0 auto 24px; font-size: 1.75rem; font-weight: 700;">
+      What's Your Next Move?
+    </h2>
+    <p style="max-width: 600px; margin: 0 auto 32px; color: rgba(28,24,48,0.70); line-height: 1.75;">
+      Start with a conversation about what retention looks like for your organization.
+    </p>
+    <a href="/discovery-call" class="btn">Book 15 Minutes</a>
+  </section>
+</BaseLayout>

@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Blog | Love Your Words">
+  <style>
+    .blog-header {
+      padding: 80px 6% 60px;
+      text-align: center;
+      background: #F7F4FE;
+    }
+    .blog-header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: #1C1830;
+    }
+    .blog-header p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.125rem;
+      color: rgba(28,24,48,0.70);
+      line-height: 1.75;
+    }
+    .posts-container {
+      padding: 60px 6%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .post-card {
+      padding: 40px;
+      border: 1px solid rgba(123,82,200,0.12);
+      border-radius: 14px;
+      background: #fff;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 24px;
+    }
+    .post-card:hover {
+      border-color: #7B52C8;
+      box-shadow: 0 8px 24px rgba(123,82,200,0.08);
+    }
+    .post-date {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #7B52C8;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .post-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1C1830;
+      margin-bottom: 12px;
+      font-family: 'Outfit', system-ui, sans-serif;
+    }
+    .post-excerpt {
+      font-size: 1rem;
+      color: rgba(28,24,48,0.70);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .read-more {
+      color: #7B52C8;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+  </style>
+
+  <section class="blog-header">
+    <h1>The Love Your Words Blog</h1>
+    <p>Stories about content, retention, and the words that actually matter.</p>
+  </section>
+
+  <section class="posts-container">
+    <a href="/blog/human-content" class="post-card">
+      <div class="post-date">June 2026</div>
+      <h2 class="post-title">The Scramble to Seem Human Is Missing the Point</h2>
+      <p class="post-excerpt">
+        After years of AI-generated content flooding social feeds, brands are scrambling to look human. But they're asking the wrong question. It's not about whether your content is human-made. It's about whether it's real.
+      </p>
+      <span class="read-more">Read the full article →</span>
+    </a>
+  </section>
+</BaseLayout>

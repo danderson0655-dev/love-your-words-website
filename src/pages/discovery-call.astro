@@ -1,0 +1,169 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Schedule a Discovery Call | Love Your Words">
+  <style>
+    .discovery-header {
+      padding: 80px 6% 60px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(123,82,200,0.08) 0%, rgba(216,125,176,0.06) 100%);
+    }
+    .discovery-header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+      color: #1C1830;
+    }
+    .discovery-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.125rem;
+      color: rgba(28,24,48,0.70);
+      line-height: 1.75;
+    }
+    .discovery-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 6%;
+    }
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 48px;
+    }
+    @media (max-width: 768px) {
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+    }
+    .column h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: #1C1830;
+      font-family: 'Outfit', system-ui, sans-serif;
+    }
+    .column p {
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: #1C1830;
+      margin-bottom: 24px;
+    }
+    .column ul {
+      margin-left: 24px;
+      margin-bottom: 24px;
+    }
+    .column li {
+      margin-bottom: 12px;
+      font-size: 1.0625rem;
+    }
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 16px 44px;
+      background: linear-gradient(135deg, #7B52C8, #D87DB0);
+      color: #fff;
+      border-radius: 40px;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      color: #7B52C8;
+      border: 1.5px solid #7B52C8;
+    }
+    .btn-outline:hover { background: #EDE7FA; }
+    .faq {
+      background: #F7F4FE;
+      padding: 48px;
+      border-radius: 14px;
+      margin-top: 48px;
+    }
+    .faq-item {
+      margin-bottom: 32px;
+    }
+    .faq-item:last-child {
+      margin-bottom: 0;
+    }
+    .faq-item h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #1C1830;
+      font-family: 'Outfit', system-ui, sans-serif;
+    }
+    .faq-item p {
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: rgba(28,24,48,0.80);
+      margin-bottom: 0;
+    }
+  </style>
+
+  <section class="discovery-header">
+    <h1>Let's Talk About Your Content</h1>
+    <p>A 15-minute conversation to explore whether we're a good fit, and what comes next.</p>
+  </section>
+
+  <section class="discovery-content">
+    <div class="two-column">
+      <div class="column">
+        <h2>What Happens on This Call</h2>
+        <p>We'll talk about your organization's story. Where you're at now with retention and content. What you've tried, what worked, what didn't.</p>
+        <p>No pitch. No sales energy. Just a conversation about whether customer journey content is the right move for you right now.</p>
+        <ul>
+          <li>Your biggest challenge with retention right now</li>
+          <li>What your supporters actually need to hear</li>
+          <li>What comes next if we decide to work together</li>
+        </ul>
+      </div>
+
+      <div class="column">
+        <h2>Schedule Now</h2>
+        <p>Pick a time that works for you. The call is 15 minutes, and we'll focus on understanding your situation.</p>
+        <div style="margin-top: 32px;">
+          <iframe src="https://calendly.com/d-anderson0655/15min?hide_event_type_details=1&hide_gdpr_banner=1" width="100%" height="600" frameborder="0" style="border-radius: 14px;"></iframe>
+        </div>
+        <p style="margin-top: 24px; text-align: center;">
+          <a href="mailto:d.anderson0655@gmail.com" style="color: #7B52C8; font-weight: 600;">Prefer email? Get in touch here.</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="faq">
+      <h2 style="margin-top: 0;">Common Questions</h2>
+
+      <div class="faq-item">
+        <h3>How much does this cost?</h3>
+        <p>The discovery call is free. If we decide to work together, I charge $40/hour for content work, with projects ranging from $2,000 to $8,000 depending on scope.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How long does a project take?</h3>
+        <p>Most projects take 6-12 weeks from start to delivery. That includes research, interviews with your team, drafting, revisions, and a final brand voice guide or editorial calendar.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What if we're not sure what we need?</h3>
+        <p>That's why we have this call. We'll figure out what actually makes sense for your organization right now, whether that's a full package or starting with one piece.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Do you work with organizations outside the nonprofit sector?</h3>
+        <p>Yes. I work with nonprofits, health practices, and essential-service businesses—any mission-driven organization that wants to keep their people, not just find them.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
