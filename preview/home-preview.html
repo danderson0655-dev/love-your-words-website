@@ -1,9 +1,62 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
----
-
-<BaseLayout title="Love Your Words | Customer Journey Content Strategist | Diane Anderson">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PREVIEW: Homepage | Love Your Words</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Lexend', system-ui, sans-serif;
+      color: #1C1830;
+      background-color: #FFFFFF;
+      line-height: 1.6;
+    }
+    h1, h2, h3 { font-family: 'Outfit', system-ui, sans-serif; font-weight: 700; line-height: 1.2; }
+    a { text-decoration: none; }
+
+    .preview-banner {
+      background: #1C1830;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+    .site-header {
+      padding: 20px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      border-bottom: 1px solid rgba(123,82,200,0.12);
+    }
+    .logo {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #7B52C8 0%, #D87DB0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav { display: flex; gap: 36px; align-items: center; }
+    .nav a { font-size: 0.875rem; font-weight: 500; color: rgba(28,24,48,0.70); }
+    .nav .nav-btn {
+      display: inline-block;
+      padding: 11px 26px;
+      background: linear-gradient(135deg, #7B52C8, #D87DB0);
+      color: #fff;
+      border-radius: 40px;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
     .hero {
       padding: 100px 6% 80px;
       text-align: center;
@@ -79,18 +132,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       font-size: 0.95rem;
       font-weight: 600;
       letter-spacing: 0.02em;
-      transition: opacity 0.2s, transform 0.2s;
       border: none;
       cursor: pointer;
-      text-decoration: none;
     }
-    .btn:hover { opacity: 0.9; transform: translateY(-2px); }
     .btn-outline {
       background: transparent;
       color: #7B52C8;
       border: 1.5px solid #7B52C8;
     }
-    .btn-outline:hover { background: #EDE7FA; }
     .trust-badges {
       margin-top: 64px;
       padding-top: 48px;
@@ -102,11 +151,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       margin-left: auto;
       margin-right: auto;
     }
-    .badge {
-      font-size: 0.9rem;
-      color: #1C1830;
-      font-weight: 500;
-    }
+    .badge { font-size: 0.9rem; color: #1C1830; font-weight: 500; }
     .badge-label {
       font-size: 0.75rem;
       text-transform: uppercase;
@@ -140,9 +185,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       margin: 0 auto;
       margin-top: 32px;
     }
-    .stat {
-      padding: 20px;
-    }
+    .stat { padding: 20px; }
     .stat-number {
       font-size: 2.2rem;
       font-family: 'Outfit', system-ui, sans-serif;
@@ -157,14 +200,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       font-weight: 600;
       color: #1C1830;
     }
-    .story-section {
-      background: #F7F4FE;
-      padding: 64px 6%;
-    }
-    .story-container {
-      max-width: 700px;
-      margin: 0 auto;
-    }
+    .story-section { background: #F7F4FE; padding: 64px 6%; }
+    .story-container { max-width: 700px; margin: 0 auto; }
     .story-container h2 {
       font-size: 1.75rem;
       font-weight: 700;
@@ -177,10 +214,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       color: #1C1830;
       margin-bottom: 20px;
     }
-    .story-container strong {
-      font-weight: 600;
-    }
   </style>
+</head>
+<body>
+  <div class="preview-banner">PREVIEW ONLY. This is the copy that will publish when you approve.</div>
+
+  <header class="site-header">
+    <span class="logo">Love Your Words</span>
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Blog</a>
+      <span class="nav-btn">Schedule a Call</span>
+    </nav>
+  </header>
 
   <section class="hero">
     <div class="hero-eyebrow">
@@ -193,8 +241,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       Your mission deserves to be one of the few. The right message system turns one-time supporters into lifetime advocates.
     </p>
     <div class="cta-group">
-      <a href="/discovery-call" class="btn">Schedule a Discovery Call</a>
-      <a href="/about" class="btn btn-outline">Learn My Story</a>
+      <span class="btn">Schedule a Discovery Call</span>
+      <span class="btn btn-outline">Learn My Story</span>
     </div>
 
     <div class="trust-badges">
@@ -244,7 +292,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <p>Love Your Words began with a goodbye. A seventeen-year-old chihuahua named Leo, and a nonprofit that met one hard day with compassion. The thank-you letter that followed became a calling.</p>
 
-      <p style="margin-top: 32px;"><a href="/about" class="btn btn-outline">Read the story</a></p>
+      <p style="margin-top: 32px;"><span class="btn btn-outline">Read the story</span></p>
     </div>
   </section>
 
@@ -255,6 +303,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <p style="max-width: 600px; margin: 0 auto 32px; color: rgba(28,24,48,0.70); line-height: 1.75;">
       Start with a conversation about what retention looks like for your organization.
     </p>
-    <a href="/discovery-call" class="btn">Book 30 Minutes</a>
+    <span class="btn">Book 30 Minutes</span>
   </section>
-</BaseLayout>
+</body>
+</html>
