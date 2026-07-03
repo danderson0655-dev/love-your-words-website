@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Privacy Policy | Love Your Words">
+  <style>
+    .legal-page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 70px 6% 90px;
+    }
+    .legal-page h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      font-family: 'Outfit', system-ui, sans-serif;
+    }
+    .effective {
+      color: rgba(28,24,48,0.55);
+      font-size: 0.9rem;
+      margin-bottom: 40px;
+    }
+    .legal-page h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 36px 0 12px;
+      color: #1C1830;
+      font-family: 'Outfit', system-ui, sans-serif;
+    }
+    .legal-page p {
+      font-size: 1.0325rem;
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+    .summary-box {
+      background: #F7F4FE;
+      border: 1px solid rgba(123,82,200,0.15);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-bottom: 12px;
+    }
+    .summary-box p { margin-bottom: 0; }
+    .legal-page a { color: #7B52C8; text-decoration: none; }
+  </style>
+
+  <article class="legal-page">
+    <h1>Privacy Policy</h1>
+    <div class="effective">Effective July 3, 2026</div>
+
+    <div class="summary-box">
+      <p><strong>The short version:</strong> this site collects almost nothing. Email sent to Love Your Words gets used to reply to you and for nothing else. Your information never gets sold. Your stories stay yours.</p>
+    </div>
+
+    <h2>Who runs this site</h2>
+    <p>Love Your Words is the copywriting practice of Diane Anderson, based in California. Questions about this policy can go to <a href="mailto:hello@loveyourwords.com">hello@loveyourwords.com</a>.</p>
+
+    <h2>What this site collects</h2>
+    <p>The site has no user accounts, no comment sections, and no contact forms. Reading it requires nothing from you.</p>
+    <p>Like nearly every website, the hosting service (Vercel) keeps standard server logs for security, which can include your IP address and the pages you visit. The pages also load their typefaces from Google Fonts, which means your browser requests those font files from Google when a page opens.</p>
+
+    <h2>Cookies</h2>
+    <p>The pages of this site set no cookies of their own. One exception: the Schedule a Call page includes a Calendly booking calendar, and Calendly may set its own cookies to make the calendar work. Calendly's handling of your information is covered by the <a href="https://calendly.com/privacy" rel="noopener">Calendly privacy policy</a>.</p>
+
+    <h2>If you email or book a call</h2>
+    <p>Email sent to hello@loveyourwords.com arrives in a mailbox hosted by Zoho Mail. Whatever you include, such as your name, your email address, and your message, gets used to reply to you and to work together if we choose to. It never gets sold, rented, or added to a mailing list without your permission.</p>
+    <p>Booking a Discovery Call through the calendar shares your name, your email address, and your chosen time with Calendly so the meeting can be scheduled.</p>
+
+    <h2>Client materials</h2>
+    <p>Clients share stories, drafts, and organizational details as part of the work. Those materials stay confidential, remain the client's property, and get used only for the project they were shared for. People's private matters stay private.</p>
+
+    <h2>Changes</h2>
+    <p>If this site ever adds tools that change what it collects, such as a newsletter signup or analytics, this policy will be updated first and the effective date above will change.</p>
+  </article>
+</BaseLayout>

@@ -66,11 +66,42 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
         <a href="/about" style="font-size: 0.875rem; font-weight: 500; color: rgba(28,24,48,0.70); text-decoration: none; transition: color 0.2s;">About</a>
         <a href="/services" style="font-size: 0.875rem; font-weight: 500; color: rgba(28,24,48,0.70); text-decoration: none; transition: color 0.2s;">Services</a>
         <a href="/blog" style="font-size: 0.875rem; font-weight: 500; color: rgba(28,24,48,0.70); text-decoration: none; transition: color 0.2s;">Blog</a>
+        <a href="/contact" style="font-size: 0.875rem; font-weight: 500; color: rgba(28,24,48,0.70); text-decoration: none; transition: color 0.2s;">Contact</a>
         <a href="/discovery-call" style="display: inline-block; padding: 11px 26px; background: linear-gradient(135deg, #7B52C8, #D87DB0); color: #fff; border-radius: 40px; font-family: 'Outfit', system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: opacity 0.2s, transform 0.2s;">Schedule a Call</a>
       </nav>
     </header>
 
     <slot />
+
+    <footer style="background: #1C1830; color: rgba(255,255,255,0.85); padding: 56px 6% 32px;">
+      <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px;">
+        <div>
+          <span style="font-family: 'Outfit', system-ui, sans-serif; font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; background: linear-gradient(135deg, #B79AE8 0%, #E8A9CC 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; margin-bottom: 12px;">Love Your Words</span>
+          <p style="font-size: 0.95rem; line-height: 1.7; color: rgba(255,255,255,0.7); max-width: 280px;">Customer journey content for mission-driven organizations. Retention copy that keeps the people you already won.</p>
+        </div>
+        <div>
+          <h3 style="font-family: 'Outfit', system-ui, sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #B79AE8; margin-bottom: 16px;">Pages</h3>
+          <a href="/" style="display: block; font-size: 0.95rem; color: rgba(255,255,255,0.8); margin-bottom: 10px; text-decoration: none;">Home</a>
+          <a href="/about" style="display: block; font-size: 0.95rem; color: rgba(255,255,255,0.8); margin-bottom: 10px; text-decoration: none;">About</a>
+          <a href="/services" style="display: block; font-size: 0.95rem; color: rgba(255,255,255,0.8); margin-bottom: 10px; text-decoration: none;">Services</a>
+          <a href="/blog" style="display: block; font-size: 0.95rem; color: rgba(255,255,255,0.8); margin-bottom: 10px; text-decoration: none;">Blog</a>
+          <a href="/contact" style="display: block; font-size: 0.95rem; color: rgba(255,255,255,0.8); margin-bottom: 10px; text-decoration: none;">Contact</a>
+        </div>
+        <div>
+          <h3 style="font-family: 'Outfit', system-ui, sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #B79AE8; margin-bottom: 16px;">Get In Touch</h3>
+          <a href="mailto:hello@loveyourwords.com" style="display: block; font-size: 0.95rem; color: rgba(255,255,255,0.8); margin-bottom: 10px; text-decoration: none;">hello@loveyourwords.com</a>
+          <a href="/discovery-call" style="display: block; font-size: 0.95rem; color: rgba(255,255,255,0.8); margin-bottom: 10px; text-decoration: none;">Schedule a Discovery Call</a>
+        </div>
+      </div>
+      <div style="max-width: 1000px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.15); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 0.85rem; color: rgba(255,255,255,0.6);">
+        <span>© 2026 Love Your Words. Diane Anderson.</span>
+        <span>
+          <a href="/privacy-policy" style="color: rgba(255,255,255,0.7); margin-left: 20px; text-decoration: none;">Privacy Policy</a>
+          <a href="/terms" style="color: rgba(255,255,255,0.7); margin-left: 20px; text-decoration: none;">Terms of Service</a>
+        </span>
+      </div>
+    </footer>
+
     <!-- Analytics: inject tracking scripts per page or globally -->
     <slot name="analytics" />
   </body>
