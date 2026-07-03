@@ -1,9 +1,62 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
----
-
-<BaseLayout title="Services | Love Your Words">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PREVIEW: Services | Love Your Words</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Lexend', system-ui, sans-serif;
+      color: #1C1830;
+      background-color: #FFFFFF;
+      line-height: 1.6;
+    }
+    h1, h2, h3 { font-family: 'Outfit', system-ui, sans-serif; font-weight: 700; line-height: 1.2; }
+    a { text-decoration: none; }
+
+    .preview-banner {
+      background: #1C1830;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+    .site-header {
+      padding: 20px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      border-bottom: 1px solid rgba(123,82,200,0.12);
+    }
+    .logo {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #7B52C8 0%, #D87DB0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav { display: flex; gap: 36px; align-items: center; }
+    .nav span.link { font-size: 0.875rem; font-weight: 500; color: rgba(28,24,48,0.70); }
+    .nav .nav-btn {
+      display: inline-block;
+      padding: 11px 26px;
+      background: linear-gradient(135deg, #7B52C8, #D87DB0);
+      color: #fff;
+      border-radius: 40px;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
     .services-header {
       padding: 80px 6% 60px;
       text-align: center;
@@ -32,7 +85,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       font-weight: 800;
       margin-bottom: 24px;
       color: #1C1830;
-      font-family: 'Outfit', system-ui, sans-serif;
     }
     .featured-service p {
       font-size: 1.0625rem;
@@ -51,11 +103,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       font-weight: 700;
       margin-bottom: 16px;
       color: #1C1830;
-      font-family: 'Outfit', system-ui, sans-serif;
     }
-    .includes ul {
-      margin-left: 24px;
-    }
+    .includes ul { margin-left: 24px; }
     .includes li {
       margin-bottom: 12px;
       font-size: 1.0625rem;
@@ -65,7 +114,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
-      margin: 60px auto;
+      margin: 48px auto 60px;
       max-width: 900px;
       padding: 0 6%;
     }
@@ -74,18 +123,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       border: 1px solid rgba(123,82,200,0.12);
       border-radius: 14px;
       background: #fff;
-      transition: all 0.2s;
-    }
-    .service-card:hover {
-      border-color: #7B52C8;
-      box-shadow: 0 8px 24px rgba(123,82,200,0.08);
     }
     .service-card h3 {
       font-size: 1.25rem;
       font-weight: 700;
       margin-bottom: 16px;
       color: #1C1830;
-      font-family: 'Outfit', system-ui, sans-serif;
     }
     .service-card p {
       font-size: 1rem;
@@ -93,17 +136,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       color: rgba(28,24,48,0.70);
       margin-bottom: 0;
     }
+    .how-we-work {
+      background: #F7F4FE;
+      padding: 64px 6%;
+    }
+    .how-inner { max-width: 780px; margin: 0 auto; }
+    .how-inner h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .how-inner h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 32px 0 12px;
+      color: #7B52C8;
+    }
+    .how-inner p {
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
     .cta-section {
       padding: 60px 6%;
       text-align: center;
-      background: #F7F4FE;
+      background: #FEF4FA;
     }
     .cta-section h2 {
       max-width: 700px;
       margin: 0 auto 24px;
       font-size: 1.75rem;
       font-weight: 700;
-      font-family: 'Outfit', system-ui, sans-serif;
     }
     .cta-section p {
       max-width: 600px;
@@ -121,17 +184,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.95rem;
       font-weight: 600;
-      text-decoration: none;
-      transition: opacity 0.2s, transform 0.2s;
     }
-    .btn:hover { opacity: 0.9; transform: translateY(-2px); }
   </style>
+</head>
+<body>
+  <div class="preview-banner">PREVIEW ONLY. This is the Services page copy that will publish when you approve.</div>
 
+  <header class="site-header">
+    <span class="logo">Love Your Words</span>
+    <nav class="nav">
+      <span class="link">Home</span>
+      <span class="link">About</span>
+      <span class="link">Services</span>
+      <span class="link">Blog</span>
+      <span class="nav-btn">Schedule a Call</span>
+    </nav>
+  </header>
+
+  <!-- BLOCK 1: Header -->
   <section class="services-header">
     <h1>Services</h1>
     <p>Content built from the things only your organization could know.</p>
   </section>
 
+  <!-- BLOCK 2: Featured package -->
   <section class="featured-service">
     <h2>Customer Journey Content Package</h2>
     <p>This is the complete system. One integrated offering that works because the pieces talk to each other.</p>
@@ -150,14 +226,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <p>The result: supporters feel like they know you. And people come back to the ones they know.</p>
   </section>
 
+  <!-- BLOCK 3: NEW general offer -->
   <section class="featured-service" style="margin-top: 0;">
     <h2>Customer Journey Copywriting</h2>
     <p>Every stop on your customer's journey needs words. The welcome email. The thank-you page. The newsletter. The donor letter. The web page that explains why you exist. Hire one writer who knows the whole road, and every piece gets written with the rest of your journey in mind.</p>
     <p>Start with the piece your organization needs most. The system can come later.</p>
   </section>
 
-  <section style="padding: 60px 6%; background: #FEF4FA;">
-    <h2 style="text-align: center; max-width: 900px; margin: 0 auto 48px; font-size: 1.75rem; font-weight: 700; font-family: 'Outfit', system-ui, sans-serif;">Or Start With One</h2>
+  <!-- BLOCK 4: Start with one -->
+  <section style="padding: 40px 6% 20px; background: #FEF4FA;">
+    <h2 style="text-align: center; max-width: 900px; margin: 0 auto; font-size: 1.75rem; font-weight: 700;">Or Start With One</h2>
     <div class="services-grid">
       <div class="service-card">
         <h3>Retention Email Sequence</h3>
@@ -178,29 +256,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <section style="padding: 64px 6%; background: #F7F4FE;">
-    <div style="max-width: 780px; margin: 0 auto;">
-      <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 24px; font-family: 'Outfit', system-ui, sans-serif;">How We Work Together</h2>
+  <!-- BLOCK 5: How we work together -->
+  <section class="how-we-work">
+    <div class="how-inner">
+      <h2>How We Work Together</h2>
 
-      <p style="font-size: 1.0625rem; line-height: 1.85; margin-bottom: 16px;">Retention copy gets built together. The words work because they are your story. True and real.</p>
+      <p>Retention copy gets built together. The words work because they are your story. True and real.</p>
 
-      <h3 style="font-size: 1.15rem; font-weight: 700; margin: 32px 0 12px; color: #7B52C8; font-family: 'Outfit', system-ui, sans-serif;">What the partnership looks like</h3>
-      <p style="font-size: 1.0625rem; line-height: 1.85; margin-bottom: 16px;">You stay in the room. You bring the stories, answer the questions only you can answer, read every draft, and say so when a line sounds unlike you. Your people can tell when the words come from someone who was there. Projects run on schedule when that partnership holds, and drafts that sit unread move deadlines with them.</p>
+      <h3>What the partnership looks like</h3>
+      <p>You stay in the room. You bring the stories, answer the questions only you can answer, read every draft, and say so when a line sounds unlike you. Your people can tell when the words come from someone who was there. Projects run on schedule when that partnership holds, and drafts that sit unread move deadlines with them.</p>
 
-      <h3 style="font-size: 1.15rem; font-weight: 700; margin: 32px 0 12px; color: #7B52C8; font-family: 'Outfit', system-ui, sans-serif;">Your customers are the heroes</h3>
-      <p style="font-size: 1.0625rem; line-height: 1.85; margin-bottom: 16px;">Retention copy is the copy that pays for itself. It grows from how you already serve: real problems solved, thank-yous that feel personal. The customer becomes the hero of the story, and your organization becomes the guide. From there the journey maps itself. You loved this project, so here's the news about what comes next.</p>
+      <h3>Your customers are the heroes</h3>
+      <p>Retention copy is the copy that pays for itself. It grows from how you already serve: real problems solved, thank-yous that feel personal. The customer becomes the hero of the story, and your organization becomes the guide. From there the journey maps itself. You loved this project, so here's the news about what comes next.</p>
 
-      <h3 style="font-size: 1.15rem; font-weight: 700; margin: 32px 0 12px; color: #7B52C8; font-family: 'Outfit', system-ui, sans-serif;">The copy gets better with use</h3>
-      <p style="font-size: 1.0625rem; line-height: 1.85; margin-bottom: 16px;">Words are a first draft of a relationship. Once a piece goes out, your numbers tell us what landed: opens, replies, renewals, second gifts. You know your data better than anyone. Bring it, and we test a headline or tighten an ask until the copy earns its keep.</p>
+      <h3>The copy gets better with use</h3>
+      <p>Words are a first draft of a relationship. Once a piece goes out, your numbers tell us what landed: opens, replies, renewals, second gifts. You know your data better than anyone. Bring it, and we test a headline or tighten an ask until the copy earns its keep.</p>
 
-      <h3 style="font-size: 1.15rem; font-weight: 700; margin: 32px 0 12px; color: #7B52C8; font-family: 'Outfit', system-ui, sans-serif;">Your stories stay yours</h3>
-      <p style="font-size: 1.0625rem; line-height: 1.85; margin-bottom: 16px;">Seventeen and a half years in bank legal work taught me fiduciary duty and the weight of compliance. People's private matters stay private. Names and personal details stay out of the work unless you approve them. Your stories remain your property, start to finish. And copy that touches regulated ground gets written with your rules in mind.</p>
+      <h3>Your stories stay yours</h3>
+      <p>Seventeen and a half years in bank legal work taught me fiduciary duty and the weight of compliance. People's private matters stay private. Names and personal details stay out of the work unless you approve them. Your stories remain your property, start to finish. And copy that touches regulated ground gets written with your rules in mind.</p>
     </div>
   </section>
 
+  <!-- BLOCK 6: CTA -->
   <section class="cta-section">
     <h2>Ready to Talk About Your Content?</h2>
     <p>Every organization has a real story. Let's find the words for yours.</p>
-    <a href="/discovery-call" class="btn">Schedule a Discovery Call</a>
+    <span class="btn">Schedule a Discovery Call</span>
   </section>
-</BaseLayout>
+</body>
+</html>
