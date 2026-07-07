@@ -1,8 +1,57 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Love Your Words",
+  "url": "https://www.loveyourwords.com",
+  "description": "Customer journey content for mission-driven organizations. Retention copy that keeps the people you already won.",
+  "founder": {
+    "@type": "Person",
+    "name": "Diane Anderson"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "hello@loveyourwords.com",
+    "contactType": "customer support"
+  },
+  "sameAs": []
+};
+
+const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Love Your Words",
+  "url": "https://www.loveyourwords.com",
+  "description": "Donor retention copywriter for nonprofits and mission-driven organizations.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Love Your Words",
+    "url": "https://www.loveyourwords.com"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.loveyourwords.com"
+    }
+  ]
+};
 ---
 
-<BaseLayout title="Love Your Words | Customer Journey Content Strategist | Diane Anderson">
+<BaseLayout title="Donor Retention Copywriter for Nonprofits" description="Retention email and brand voice for nonprofits and healthcare organizations, written by a copywriter with 20+ years in loyalty and donor communication.">
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
   <style>
     .hero {
       padding: 100px 6% 80px;
@@ -184,13 +233,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <section class="hero">
     <div class="hero-eyebrow">
-      <span style="font-size: 1.15rem;">🎯</span> EXPERTISE IN RETENTION
+      🎯 EXPERTISE IN RETENTION
     </div>
     <h1>
       Most organizations know how to <span class="hero-highlight">find a donor. Few know how to keep one.</span>
     </h1>
     <p>
-      Your mission deserves to be one of the few. The right message system turns one-time supporters into lifetime advocates.
+      Your mission deserves to be one of the few. With the right emails, voice, and content systems, your one-time supporters become lifetime advocates.
     </p>
     <div class="cta-group">
       <a href="/discovery-call" class="btn">Schedule a Discovery Call</a>
@@ -207,8 +256,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div>20+ years. Loyalty programs. Direct mail. Real people.</div>
       </div>
       <div class="badge">
-        <div class="badge-label">Experience Includes</div>
-        <div>Starwood Hotels, Princess Cruises, Sheppard Mullin, Paul Hastings</div>
+        <div class="badge-label">Clients Include</div>
+        <div>Starwood, Princess Cruises, Paul Hastings, Sheppard Mullin</div>
       </div>
     </div>
   </section>
@@ -216,7 +265,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="credentials">
     <h2>Why Organizations Trust This Work</h2>
     <p class="credentials-subtitle">
-      Trust is earned one message at a time. A complete message system, from the first welcome to the last thank-you, makes every word reinforce who you are and why your people matter. We build that system together. You bring the stories only your organization knows. More than 20 years of loyalty lessons, from the Starwood Preferred Guest program and the phones at Princess Cruises, shape those stories into words your people trust.
+      Your organization doesn't need more generic copywriting. You need a complete message system—from the first email to the last touchpoint—so every word reinforces who you are and why your people matter. I design that system for you, drawing on 20+ years of turning first-time givers into lifelong supporters.
     </p>
     <div class="stat-group">
       <div class="stat">
@@ -224,12 +273,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="stat-label">Years Writing</div>
       </div>
       <div class="stat">
-        <div class="stat-number">4</div>
-        <div class="stat-label">Sectors Served</div>
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Organizations Served</div>
       </div>
       <div class="stat">
-        <div class="stat-number">30</div>
-        <div class="stat-label">Minute Discovery Call</div>
+        <div class="stat-number">3</div>
+        <div class="stat-label">Core Services</div>
       </div>
       <div class="stat">
         <div class="stat-number">100%</div>
@@ -240,11 +289,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <section class="story-section">
     <div class="story-container">
-      <h2>The Story Behind Love Your Words</h2>
+      <h2>How a Goodbye Became a Beginning</h2>
 
-      <p>Love Your Words began with a goodbye. A seventeen-year-old chihuahua named Leo, and a nonprofit that met one hard day with compassion. The thank-you letter that followed became a calling.</p>
+      <p>At 72, my beloved chihuahua, Leo Waxman (blind and deaf) had reached the point where love meant letting go. I called six different vets. The cost for compassionate end-of-life care was $350 or more, and I didn't know how I was going to manage it.</p>
 
-      <p style="margin-top: 32px;"><a href="/about" class="btn btn-outline">Read the story</a></p>
+      <p>Then I reached out to Joybound. They didn't just give me information. They gave me compassion. They helped me access an assistance program so I could give Leo the gentle, loving goodbye he deserved.</p>
+
+      <p>That last day with Leo... it's one I will never forget. It was peaceful. It was dignified. And it was filled with love.</p>
+
+      <p>A few weeks later, I sat down and wrote what happened. Not to process it. Not to heal. Just to tell it straight. The desperation. The kindness. Leo in my arms knowing he was safe.</p>
+
+      <p>That's when I understood what I wanted to do with Love Your Words. Help people tell stories like that. <strong>Stories are the one place where only you know what's real, what actually happened.</strong> Not marketing copy. Not templates. Just the true, specific, tender things that matter.</p>
+
+      <p>And when you tell your real story, you become part of a community that chooses honesty in the moments that matter most.</p>
     </div>
   </section>
 
@@ -255,6 +312,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <p style="max-width: 600px; margin: 0 auto 32px; color: rgba(28,24,48,0.70); line-height: 1.75;">
       Start with a conversation about what retention looks like for your organization.
     </p>
-    <a href="/discovery-call" class="btn">Book 30 Minutes</a>
+    <a href="/discovery-call" class="btn">Book 15 Minutes</a>
   </section>
 </BaseLayout>
