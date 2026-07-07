@@ -1,8 +1,59 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Nonprofit Content Copywriting",
+  "provider": {
+    "@type": "Organization",
+    "name": "Love Your Words",
+    "url": "https://www.loveyourwords.com"
+  },
+  "areaServed": "US",
+  "description": "Donor retention email sequences, brand voice guides, and editorial calendars for nonprofits and mission-driven organizations.",
+  "url": "https://www.loveyourwords.com/services"
+};
+
+const offerSchema = {
+  "@context": "https://schema.org",
+  "@type": "Offer",
+  "name": "Customer Journey Content Package",
+  "description": "Retention email system, brand voice guide, editorial calendar and strategy, and an optional testimonial and social proof campaign, delivered as one integrated system.",
+  "seller": {
+    "@type": "Organization",
+    "name": "Love Your Words",
+    "url": "https://www.loveyourwords.com"
+  },
+  "url": "https://www.loveyourwords.com/services"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.loveyourwords.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://www.loveyourwords.com/services"
+    }
+  ]
+};
 ---
 
-<BaseLayout title="Services | Love Your Words">
+<BaseLayout title="Nonprofit Content Services and Donor Retention" description="Donor retention email sequences, brand voice guides, and editorial calendars for nonprofits, written from the stories only your team can tell.">
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(offerSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
   <style>
     .services-header {
       padding: 80px 6% 60px;
